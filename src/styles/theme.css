@@ -45,7 +45,7 @@ html {
   scroll-padding-top: 32px;
 }
 body {
-  min-width: 320px;
+  min-width: 280px;
   margin: 0;
 }
 a {
@@ -166,8 +166,47 @@ h1 span {
     0 100%
   );
 }
-.hero-banner span {
+.hero-banner-arrow {
   font-size: 1.2em;
+}
+.typing-banner {
+  transition: color 150ms;
+}
+.typing-banner:hover {
+  color: #fff;
+}
+.typing-banner:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--yellow);
+}
+.typing-stack {
+  display: inline-grid;
+  white-space: nowrap;
+  min-width: 0;
+  padding-right: 5px;
+}
+.typing-stack > span {
+  grid-area: 1 / 1;
+}
+.typing-measure {
+  visibility: hidden;
+}
+.typing-text {
+  display: flex;
+  align-items: center;
+}
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  background: currentColor;
+  animation: cursor-blink 1s step-end infinite;
+}
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
 }
 .hero-links {
   display: flex;
@@ -583,7 +622,7 @@ h3 a:hover {
     display: none;
   }
   .hero-banner {
-    font-size: 18px;
+    font-size: clamp(14px, 4.2vw, 18px);
     gap: 9px;
   }
   .hero-links {

@@ -1,0 +1,158 @@
+name: Update profile visuals
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - README.md
+      - .github/workflows/profile-assets.yml
+      - .github/profile-3d.json
+  schedule:
+    - cron: "23 20 * * *" # Daily at 04:23 Asia/Shanghai.
+  workflow_dispatch:
+
+concurrency:
+  group: profile-visuals
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Generate GitHub stats
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=HideInMatrix&show_icons=true&hide_rank=true&hide_border=true&border_radius=0&bg_color=000000&title_color=FFE70B&text_color=FFE70B&icon_color=FFE70B&custom_title=GitHub%20Activity
+          path: generated/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+      - name: Generate language distribution
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=HideInMatrix&layout=compact&langs_count=6&hide_border=true&border_radius=0&bg_color=000000&title_color=FFE70B&text_color=FFE70B&exclude_repo=hideinmatrix,hideinmatrix.github.io
+          path: generated/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: profile-stats
+          path: generated/*.svg
+          retention-days: 3
+
+  trophy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Generate achievement trophies
+        uses: ryo-ma/github-profile-trophy@43736b50a82fca73c8df1c81abb40aa03519975c
+        with:
+          username: HideInMatrix
+          output_path: generated/trophy.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          theme: juicyfresh
+      - name: Match the homepage palette
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path("generated/trophy.svg")
+          svg = path.read_text()
+          for old, new in {"#0d0c15": "#000000", "#f7d745": "#ffe70b", "#b2d76c": "#ffe70b", "#8bb071": "#b7a500", "#6562af": "#827600"}.items():
+              svg = svg.replace(old, new)
+          path.write_text(svg)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: profile-trophy
+          path: generated/trophy.svg
+          retention-days: 3
+
+  snake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Generate the contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: HideInMatrix
+          outputs: |
+            generated/snake.svg?color_snake=#ffe70b&color_dots=#1c1c14,#554d04,#928406,#c9b609,#ffe70b
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: profile-snake
+          path: generated/snake.svg
+          retention-days: 3
+
+  contribution-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Generate the 3D contribution calendar
+        uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: HideInMatrix
+          SETTING_JSON: .github/profile-3d.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: profile-3d
+          path: profile-3d-contrib/profile-3d.svg
+          retention-days: 3
+
+  publish:
+    needs: [stats, trophy, snake, contribution-map]
+    if: ${{ always() && (needs.stats.result == 'success' || needs.trophy.result == 'success' || needs.snake.result == 'success' || needs.contribution-map.result == 'success') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: profile-*
+          path: generated
+          merge-multiple: true
+      - name: Validate generated images
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          files = list(Path("generated").glob("*.svg"))
+          if not files:
+              raise SystemExit("No SVG images generated")
+          for path in files:
+              root = ET.parse(path).getroot()
+              if root.tag != "{http://www.w3.org/2000/svg}svg":
+                  raise SystemExit(f"Invalid SVG: {path}")
+              if "Something went wrong" in path.read_text():
+                  raise SystemExit(f"Error card: {path}")
+              print(f"Validated {path.name}")
+          PY
+      - name: Publish README images
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: profile-assets
+          publish_dir: generated
+          keep_files: true
+          enable_jekyll: true
+          commit_message: "chore(profile): refresh generated visuals"

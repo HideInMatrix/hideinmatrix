@@ -6,6 +6,7 @@ export const githubConfig = {
 } as const;
 
 export const siteLinks = {
+  home: "https://micromatrix.org",
   blog: "https://blog.micromatrix.org",
   github: `https://github.com/${githubConfig.username}?tab=repositories`,
 } as const;

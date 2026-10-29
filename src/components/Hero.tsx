@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { navigationItems, siteLinks } from "../content/site";
+import { TypingBanner } from "./TypingBanner";
 
 export function Hero() {
   return (
@@ -29,9 +30,7 @@ export function Hero() {
           <br className="desktop-break" />
           关注前端产品、系统接口，以及那些小而实用的软件。
         </p>
-        <p className="hero-banner">
-          让想法成为可运行的软件<span aria-hidden="true">↗</span>
-        </p>
+        <TypingBanner />
         <div className="hero-links">
           <a
             className="button button-solid"
