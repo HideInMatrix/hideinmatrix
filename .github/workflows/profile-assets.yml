@@ -7,6 +7,7 @@ on:
       - README.md
       - .github/workflows/profile-assets.yml
       - .github/profile-3d.json
+      - scripts/theme-profile-images.py
   schedule:
     - cron: "23 20 * * *" # Daily at 04:23 Asia/Shanghai.
   workflow_dispatch:
@@ -30,7 +31,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=HideInMatrix&show_icons=true&hide_rank=true&hide_border=true&border_radius=0&bg_color=000000&title_color=FFE70B&text_color=FFE70B&icon_color=FFE70B&custom_title=GitHub%20Activity
+          options: username=HideInMatrix&show_icons=true&hide_rank=true&hide_border=true&border_radius=0&bg_color=00000000&title_color=FFE70B&text_color=E6EDF3&icon_color=FFE70B&custom_title=GitHub%20Activity
           path: generated/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: true
@@ -38,7 +39,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=HideInMatrix&layout=compact&langs_count=6&hide_border=true&border_radius=0&bg_color=000000&title_color=FFE70B&text_color=FFE70B&exclude_repo=hideinmatrix,hideinmatrix.github.io
+          options: username=HideInMatrix&layout=compact&langs_count=6&hide_border=true&border_radius=0&bg_color=00000000&title_color=FFE70B&text_color=E6EDF3&exclude_repo=hideinmatrix,hideinmatrix.github.io
           path: generated/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: true
@@ -131,6 +132,8 @@ jobs:
           pattern: profile-*
           path: generated
           merge-multiple: true
+      - name: Generate light and dark variants
+        run: python3 scripts/theme-profile-images.py generated
       - name: Validate generated images
         run: |
           python3 - <<'PY'

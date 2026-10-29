@@ -27,7 +27,18 @@
 生成任务只有仓库读取权限；仅图片发布任务有写权限。
 若仓库策略禁止 Actions 推送，工作流会明确失败，需由仓库所有者调整相应策略。
 
-黄黑主题的 3D 配置在 `.github/profile-3d.json`。
+## 明暗主题
+
+README 使用 GitHub 支持的 `<picture>` 与 `prefers-color-scheme`，跟随访问者
+当前的 GitHub 明暗主题切换图片，不按时间判断白天或黑夜。
+
+横幅、打字动画、徽章、统计卡片、奖杯、贪吃蛇与 3D 图均提供两套配色。
+大块背景改为透明：浅色主题使用深色正文和深金色点缀，深色主题使用浅色正文
+和黄色点缀。没有匹配到主题的阅读器使用浅色版本作为默认图片。
+
+`scripts/theme-profile-images.py` 在上游图片生成后产生 `*-light.svg` 和
+`*-dark.svg`，保留原来的贡献数据和 SVG 动画。
+3D 生成器的基础配置在 `.github/profile-3d.json`。
 主页、博客和 GitHub 地址在 `src/content/site.ts`，README 中的链接也应同步修改。
 
 ## 网页打字动画
