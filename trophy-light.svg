@@ -5,7 +5,7 @@
       viewBox="0 0 990 115"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-    >
+    ><rect x="0" y="0" width="990" height="115" fill="#f6f8fa"/>
       
         <svg
           x="0"
@@ -23,7 +23,7 @@
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />
@@ -91,7 +91,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
   
           <text x="50%" y="18" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="13" fill="#9a6700">Commits</text>
           <text x="50%" y="85" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10.5" fill="#9a6700">Ultra Committer</text>
-          <text x="50%" y="97" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10" fill="#9a6700">662pt</text>
+          <text x="50%" y="97" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10" fill="#9a6700">792pt</text>
           
     <style>
     @keyframes CommitsRankAnimation {
@@ -99,7 +99,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
         width: 0px;
       }
       to {
-        width: 25.92px;
+        width: 46.72px;
       }
     }
     #Commits-rank-progress{
@@ -142,7 +142,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />
@@ -210,7 +210,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
   
           <text x="50%" y="18" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="13" fill="#9a6700">Repositories</text>
           <text x="50%" y="85" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10.5" fill="#9a6700">Ultra Repo Creator</text>
-          <text x="50%" y="97" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10" fill="#9a6700">36pt</text>
+          <text x="50%" y="97" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10" fill="#9a6700">37pt</text>
           
     <style>
     @keyframes RepositoriesRankAnimation {
@@ -218,7 +218,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
         width: 0px;
       }
       to {
-        width: 16px;
+        width: 32px;
       }
     }
     #Repositories-rank-progress{
@@ -261,7 +261,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />
@@ -362,7 +362,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />
@@ -442,7 +442,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />
@@ -522,7 +522,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />
@@ -602,7 +602,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />
@@ -682,7 +682,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
             width="114"
             height="114"
             stroke="#e1e4e8"
-            fill="none"
+            fill="#f6f8fa"
             stroke-opacity="1"
             fill-opacity="1"
           />

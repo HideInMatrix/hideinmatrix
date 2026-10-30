@@ -7,9 +7,9 @@
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-labelledby="descId"
-      >
+      ><rect x="0" y="0" width="304" height="195" fill="#000000"/>
         <title id="titleId">GitHub Activity, Rank: C+</title>
-        <desc id="descId">Total Stars Earned: 13, Total Commits  (last year) : 662, Total PRs: 0, Total Issues: 6, Contributed to (last year): 4</desc>
+        <desc id="descId">Total Stars Earned: 13, Total Commits  (last year) : 792, Total PRs: 0, Total Issues: 6, Contributed to (last year): 4</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 195.6255226870295;
+        stroke-dashoffset: 193.60310652203995;
       }
     }
   
@@ -118,7 +118,7 @@
           height="99%"
           stroke="#e4e2e2"
           width="303"
-          fill="none"
+          fill="#000000"
           stroke-opacity="0"
         />
 
@@ -173,7 +173,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >662</text>
+      >792</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
