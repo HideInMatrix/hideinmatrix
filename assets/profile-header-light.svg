@@ -4,9 +4,9 @@
   <desc id="desc">写代码，做工具，记录折腾的过程。</desc>
   <rect x="30" y="30" width="70" height="70" fill="#ffe70b"/>
   <path fill="#000" d="M42 45h10l13 22 13-22h10v41H78V65L65 87 52 65v21H42z"/>
-  <text fill="#1f2328" x="120" y="57" font-family="sans-serif" font-weight="600" font-size="13" letter-spacing="3">BENDER / DEVELOPER &amp; MAKER</text>
-  <text fill="#1f2328" x="117" y="105" font-family="sans-serif" font-weight="700" font-size="47" letter-spacing="-2">MicroMatrix.</text>
+  <text fill="#1f2328" x="120" y="46" font-family="sans-serif" font-weight="600" font-size="13" letter-spacing="3">BENDER / DEVELOPER &amp; MAKER</text>
+  <text fill="#1f2328" x="117" y="94" font-family="sans-serif" font-weight="700" font-size="47" letter-spacing="-2">MicroMatrix.</text>
   <path d="M30 135H790L814 158 790 181H30Z" fill="#eaeef2"/>
   <text x="48" y="165" font-family="sans-serif" font-size="17" font-weight="600" fill="#1f2328">BUILD SMALL. KEEP CURIOUS. SHIP SOMETHING USEFUL.</text>
-  <path d="M839 72h27v27m0-27-39 39" stroke="#9a6700" stroke-width="6" fill="none"/>
+  <path d="M839 46h27v27m0-27-39 39" stroke="#9a6700" stroke-width="6" fill="none"/>
 </svg>

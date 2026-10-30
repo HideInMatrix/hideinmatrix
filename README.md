@@ -1,8 +1,8 @@
 <a href="https://micromatrix.org">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-header-dark.svg?v=2" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-header-light.svg?v=2" />
-  <img src="./assets/profile-header-light.svg?v=2" alt="Bender / MicroMatrix — 写代码，做工具，记录折腾的过程" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-header-dark.svg?v=3" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-header-light.svg?v=3" />
+  <img src="./assets/profile-header-light.svg?v=3" alt="Bender / MicroMatrix — 写代码，做工具，记录折腾的过程" />
 </picture>
 </a>
 
