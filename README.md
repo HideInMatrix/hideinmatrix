@@ -8,9 +8,9 @@
 
 <a href="https://micromatrix.org">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Source+Sans+3&amp;weight=600&amp;size=25&amp;duration=2400&amp;pause=1400&amp;background=000000&amp;vCenter=true&amp;width=900&amp;height=62&amp;lines=https%3A%2F%2Fmicromatrix.org;https%3A%2F%2Fblog.micromatrix.org&amp;color=FFE70B" />
-  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Source+Sans+3&amp;weight=600&amp;size=25&amp;duration=2400&amp;pause=1400&amp;background=F6F8FA&amp;vCenter=true&amp;width=900&amp;height=62&amp;lines=https%3A%2F%2Fmicromatrix.org;https%3A%2F%2Fblog.micromatrix.org&amp;color=1F2328" />
-  <img src="https://readme-typing-svg.demolab.com?font=Source+Sans+3&amp;weight=600&amp;size=25&amp;duration=2400&amp;pause=1400&amp;background=F6F8FA&amp;vCenter=true&amp;width=900&amp;height=62&amp;lines=https%3A%2F%2Fmicromatrix.org;https%3A%2F%2Fblog.micromatrix.org&amp;color=1F2328" alt="个人主页 micromatrix.org 与博客 blog.micromatrix.org" width="900" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-typing-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/profile-typing-light.svg" />
+  <img src="./assets/profile-typing-light.svg" alt="个人主页 micromatrix.org 与博客 blog.micromatrix.org" width="900" />
 </picture>
 </a>
 

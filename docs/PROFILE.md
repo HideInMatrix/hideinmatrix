@@ -6,7 +6,7 @@
 ## 页面与数据来源
 
 - 顶部黄黑横幅：仓库中的 `assets/profile-header.svg`。
-- README 打字动画：[readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg)，轮播主页与博客网址。
+- README 打字动画：[readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg)，轮播主页与博客网址。图片保存在 `assets/profile-typing-*.svg`，左右各预留 24px；运行 `python3 scripts/update-profile-typing.py` 可重新生成。
 - 技术栈与网站徽章：[Shields.io](https://shields.io/)。
 - 统计与语言卡片：[GitHub Readme Stats Action](https://github.com/stats-organization/github-readme-stats-action)。旧的 `anuraghazra/github-readme-stats` 已停止维护，因此采用其推荐的后继生成器。
 - 成就奖杯：[GitHub Profile Trophy](https://github.com/ryo-ma/github-profile-trophy)，固定到已核对的提交。
