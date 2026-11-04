@@ -1,7 +1,7 @@
 # MicroMatrix
 
-Bender's personal homepage. React + TypeScript + Vite, with a yellow/black visual
-direction inspired by [JS.ORG](https://js.org/). Fonts are hosted locally; see
+Bender's personal homepage. React + TypeScript + Vite, with a Bauhaus-inspired geometric layout, primary colors, and hand-drawn doodles.
+Animations use Motion for React through the existing `framer-motion` package. Fonts are hosted locally; see
 [public/fonts/README.md](../public/fonts/README.md) for sources, licenses and subsetting instructions.
 
 ## Development
@@ -39,3 +39,15 @@ Forks, archived/disabled/private repositories and excluded names are omitted.
 
 The automated tests cover pagination, both sort orders, filtering, the five-item
 limit, malformed API responses, rate limits, storage corruption and safe links.
+
+## Visual design and motion
+
+The paper, ink, red, blue, and yellow tokens live in `src/styles/theme.css`.
+`GeometricPoster` builds the hero artwork with CSS geometry and animated SVG strokes.
+`StudioMotion` shares the animation preference across the page: the header toggle
+pauses decorative motion and typing, and the system reduced-motion setting takes
+precedence. Project rows animate their positions when the sort order changes.
+Geometry and SVG strokes repeat a 2.4-second gesture with a 4-second rest.
+Loops stop outside the viewport, and scroll reveals replay on re-entry.
+Layouts switch to a single column below 760px. Existing GitHub data loading,
+filtering, caching, and retry behavior are preserved.

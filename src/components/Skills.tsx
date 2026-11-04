@@ -9,7 +9,7 @@ export function Skills() {
         {skillGroups.map((group) => (
           <div key={group.title}>
             <dt>{group.title}</dt>
-            <dd>{group.items.join(" · ")}</dd>
+            <dd>{group.items.map((item) => <span className="skill-tag" key={item}>{item}</span>)}</dd>
           </div>
         ))}
       </dl>

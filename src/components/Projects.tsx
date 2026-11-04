@@ -6,6 +6,8 @@ import {
   Star,
 } from "lucide-react";
 import { useState } from "react";
+import { LayoutGroup, motion } from "framer-motion";
+import { useStudioMotion } from "./motion/StudioMotion";
 import { githubConfig, siteLinks } from "../content/site";
 import { useGithubProjects } from "../hooks/useGithubProjects";
 import {
@@ -106,11 +108,11 @@ export function Projects() {
           </div>
         ) : null}
         {projects.length > 0 ? (
-          <ol className="project-list">
+          <LayoutGroup><ol className="project-list">
             {projects.map((repo, index) => (
               <ProjectRow key={repo.id} repo={repo} index={index} />
             ))}
-          </ol>
+          </ol></LayoutGroup>
         ) : null}
         {!loading && !error && projects.length === 0 ? (
           <div className="project-empty">
@@ -139,10 +141,11 @@ export function Projects() {
 }
 
 function ProjectRow({ repo, index }: { repo: Repository; index: number }) {
+  const { active } = useStudioMotion();
   const homepage = safeHomepage(repo.homepage);
   const href = `https://github.com/${encodeURIComponent(repo.owner.login)}/${encodeURIComponent(repo.name)}`;
   return (
-    <li className="project-row">
+    <motion.li className="project-row" layout={active ? "position" : false} initial={active ? { opacity: 0, y: 15 } : false} whileInView={{ opacity: 1, y: 0 }} animate={active ? { opacity: 0, y: 15 } : { opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.1 }} whileHover={active ? { x: 4 } : undefined} transition={{ type: "spring", stiffness: 180, damping: 24 }}>
       <span className="project-number" aria-hidden="true">
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -196,6 +199,6 @@ function ProjectRow({ repo, index }: { repo: Repository; index: number }) {
           ) : null}
         </div>
       </article>
-    </li>
+    </motion.li>
   );
 }

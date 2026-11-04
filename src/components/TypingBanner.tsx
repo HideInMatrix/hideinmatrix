@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { siteLinks } from "../content/site";
+import { useStudioMotion } from "./motion/StudioMotion";
 
 const addresses = [siteLinks.home, siteLinks.blog];
 
 export function TypingBanner() {
+  const { active } = useStudioMotion();
   const [addressIndex, setAddressIndex] = useState(0);
   const [length, setLength] = useState(0);
   const [deleting, setDeleting] = useState(false);
@@ -19,7 +21,7 @@ export function TypingBanner() {
   }, []);
 
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || !active) return;
     const address = addresses[addressIndex];
     const complete = length === address.length;
     const delay = deleting ? 45 : complete ? 2000 : length === 0 ? 450 : 85;
@@ -31,7 +33,7 @@ export function TypingBanner() {
       } else setLength((current) => current + (deleting ? -1 : 1));
     }, delay);
     return () => window.clearTimeout(timer);
-  }, [addressIndex, length, deleting, reducedMotion]);
+  }, [addressIndex, length, deleting, reducedMotion, active]);
 
   return (
     <a
@@ -44,7 +46,7 @@ export function TypingBanner() {
       <span className="typing-stack" aria-hidden="true">
         <span className="typing-measure">{siteLinks.blog}</span>
         <span className="typing-text">
-          {reducedMotion
+          {reducedMotion || !active
             ? addresses[addressIndex]
             : addresses[addressIndex].slice(0, length)}
           <span className="typing-cursor" />

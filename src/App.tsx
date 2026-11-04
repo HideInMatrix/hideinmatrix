@@ -3,19 +3,20 @@ import { Hero } from "./components/Hero";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { siteLinks } from "./content/site";
+import { Reveal, StudioMotion } from "./components/motion/StudioMotion";
 
 export function App() {
   return (
-    <div className="site-shell">
+    <StudioMotion><div className="site-shell">
       <a className="skip-link" href="#projects">
         跳到开源项目
       </a>
       <main>
         <Hero />
-        <Projects />
+        <Reveal><Projects /></Reveal>
         <div className="profile-grid">
-          <About />
-          <Skills />
+          <Reveal><About /></Reveal>
+          <Reveal><Skills /></Reveal>
         </div>
       </main>
       <footer className="site-footer">
@@ -32,6 +33,6 @@ export function App() {
           </a>
         </div>
       </footer>
-    </div>
+    </div></StudioMotion>
   );
 }
