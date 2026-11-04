@@ -51,3 +51,14 @@ Geometry and SVG strokes repeat a 2.4-second gesture with a 4-second rest.
 Loops stop outside the viewport, and scroll reveals replay on re-entry.
 Layouts switch to a single column below 760px. Existing GitHub data loading,
 filtering, caching, and retry behavior are preserved.
+
+## Search engine discovery
+
+`public/robots.txt` allows crawling and advertises `/sitemap.xml`. Vite copies
+both files into the build output unchanged. The sitemap lists the homepage at
+`https://www.micromatrix.org/`, matching the canonical link in `index.html` and
+the home URL in `src/content/site.ts`.
+
+This is a single-page site: section anchors are not separate sitemap entries.
+The blog runs on a separate subdomain and is outside this sitemap's scope. If the
+production domain changes, update all three URL declarations together.
